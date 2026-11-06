@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concert Design | KL Design</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #080914;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 24px 0;
+    border-bottom: 1px solid #292b40;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(90deg, #62dfff, #d46cff);
+    color: transparent;
+    background-clip: text;
+}
+
+nav a {
+    color: #cbd2e5;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+nav a:hover {
+    color: #62dfff;
+}
+
+.hero {
+    padding: 65px 0 35px;
+}
+
+.eyebrow {
+    color: #62dfff;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: clamp(40px, 7vw, 72px);
+    line-height: 1.1;
+    margin: 12px 0 18px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #62dfff, #e05bce);
+    color: transparent;
+    background-clip: text;
+}
+
+.hero p, .section-heading p {
+    color: #aab2c9;
+    max-width: 720px;
+}
+
+.section-heading {
+    margin: 40px 0 22px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+}
+
+.section-heading p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Main poster */
+.featured-poster {
+    max-width: 700px;
+    height: 560px;
+    margin: 0 auto 55px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #141627;
+    border: 1px solid #30344d;
+    cursor: zoom-in;
+}
+
+.featured-poster img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Category filters */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.filter-btn {
+    padding: 10px 17px;
+    border: 1px solid #30344d;
+    border-radius: 25px;
+    background: #111323;
+    color: #cbd2e5;
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: linear-gradient(90deg, #168dff, #a947e8);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* Image gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 65px;
+}
+
+.design-card {
+    min-width: 0;
+    background: #111323;
+    border: 1px solid #292d44;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s;
+}
+
+.design-card:hover {
+    transform: translateY(-4px);
+    border-color: #6b8cff;
+}
+
+.design-card[hidden] {
+    display: none;
+}
+
+.design-image {
+    height: 380px;
+    background: #171a2c;
+    cursor: zoom-in;
+}
+
+.design-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .3s;
+}
+
+.design-card:hover .design-image img {
+    transform: scale(1.025);
+}
+
+.design-info {
+    padding: 20px;
+}
+
+.category {
+    color: #62dfff;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.design-info h3 {
+    font-size: 21px;
+    margin: 7px 0;
+}
+
+.design-info p {
+    color: #aab2c9;
+    font-size: 14px;
+}
+
+/* Video presentation */
+.video-box {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto 70px;
+    aspect-ratio: 16 / 9;
+    background: #141627;
+    border: 1px solid #30344d;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-box video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid #292b40;
+    padding: 25px 0;
+    color: #aab2c9;
+    font-size: 13px;
+}
+
+/* Image preview */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, .94);
+    padding: 25px;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    nav {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 0 12px 0 0;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-poster {
+        height: 420px;
+    }
+
+    .design-image {
+        height: 340px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<nav>
+    <a class="logo" href="index.html">KL DESIGN</a>
+    <div>
+        <a href="Portfolio-html & css .html">Home</a>
+        <a href="Portfolio-2html & css .html">My Work</a>
+        
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="eyebrow">CONCERT / EVENT VISUAL DESIGN</div>
+    <h1>GLOWING<br><span class="gradient">Concert Experience.</span></h1>
+    <p>
+        A concert design project exploring vibrant lighting,
+        bold typography and immersive visual experiences.
+        This collection presents the poster, promotional
+        graphics and stage visual concepts.
+    </p>
+</header>
+
+<section>
+    <div class="section-heading">
+        <h2>Featured Poster</h2>
+        <p>The main promotional visual for the concert project.</p>
+    </div>
+
+    <div class="featured-poster"
+         data-src="images/concert-poster.jpg"
+         data-alt="GLOWING concert poster">
+        <img src="../Image/Annoucement poster 2.jpg"
+             alt="GLOWING concert poster">
+    </div>
+</section>
+
+<section>
+    <div class="section-heading">
+        <h2>Concert Design Collection</h2>
+        <p>Explore the different elements of the visual identity.</p>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">
+            All Designs
+        </button>
+        <button class="filter-btn" data-filter="poster">
+            Posters
+        </button>
+        <button class="filter-btn" data-filter="stage">
+            LED Visuals
+        </button>
+        <button class="filter-btn" data-filter="promotion">
+            Promotion
+        </button>
+    </div>
+
+    <div class="gallery">
+
+        <article class="design-card" data-category="poster">
+            <div class="design-image"
+                 data-src="images/concert-poster.jpg"
+                 data-alt="Concert poster design">
+                <img src="../Image/Poster 2.jpg"
+                     alt="Concert poster design">
+            </div>
+            <div class="design-info">
+                <div class="category">01 / Poster</div>
+                <h3>Main Concert Poster</h3>
+                <p>The main event artwork and concert identity.</p>
+            </div>
+        </article>
+
+        <article class="design-card" data-category="poster">
+            <div class="design-image"
+                 data-src="images/concert-motion-poster.jpg"
+                 data-alt="Concert motion poster artwork">
+                <img src="../Image/Screenshot 2026-10-26 150812.png"
+                     alt="Concert motion poster artwork">
+            </div>
+            <div class="design-info">
+                <div class="category">02 / Motion Poster</div>
+                <h3>Motion Poster</h3>
+                <p>Animated typography and lighting effects.</p>
+            </div>
+        </article>
+
+        <article class="design-card" data-category="stage">
+            <div class="design-image"
+                 data-src="images/concert-led-visual.jpg"
+                 data-alt="Concert stage LED visual">
+                <img src="../Image/Screenshot 2026-10-26 153927.png"
+                     alt="Concert E-Ticket">
+            </div>
+            <div class="design-info">
+                <div class="category">03 / Ticket Visuals</div>
+                <h3>E-Ticket Design</h3>
+                <p>Visual concepts designed for a concert entrance.</p>
+            </div>
+        </article>
+
+        <article class="design-card" data-category="poster">
+            <div class="design-image"
+                 data-src="images/concert-banner.jpg"
+                 data-alt="Concert promotional banner">
+                <img src="../Image/Bunting.jpg"
+                     alt="Concert promotional banner">
+            </div>
+            <div class="design-info">
+                <div class="category">04 / Bunting</div>
+                <h3>Event Bunting</h3>
+                <p>Promotional graphics supporting the event identity.</p>
+            </div>
+        </article>
+
+		 <article class="design-card" data-category="promotion">
+            <div class="design-image"
+                 data-src="images/concert-banner.jpg"
+                 data-alt="Concert promotional banner">
+                <img src="../Image/Firefly_Gemini Flash_put it into a neat composition, remove the finger and group it to a present portfolio 614094.png"
+                     alt="Concert Promotional Mockup">
+            </div>
+            <div class="design-info">
+				
+                <div class="category">04 / Promotion</div>
+                <h3>Concert Promotional Item</h3>
+                <p>Promotional graphics supporting the event identity.</p>
+            </div>
+        </article>
+		
+		 <article class="design-card" data-category="promotion">
+            <div class="design-image"
+                 data-src="images/concert-banner.jpg"
+                 data-alt="Concert promotional banner">
+                <img src="../Image/Firefly_Gemini Flash_put it into a neat composition, remove the background and group it to a present portf 168133.png"
+                     alt="Concert Promotional Mockup">
+            </div>
+            <div class="design-info">
+              <div class="category">04 / Promotion</div>
+                <h3>Concert Promotional Item</h3>
+                <p>Promotional graphics supporting the event identity.</p>
+            </div>
+        </article>
+		
+		 <article class="design-card" data-category="promotion">
+            <div class="design-image"
+                 data-src="images/concert-banner.jpg"
+                 data-alt="Concert promotional banner">
+                <img src="../Image/Firefly_Gemini Flash_put it into a neat composition, remove the background and put it to a present portfol 376429.png"
+                     alt="Concert Promotional Mockup">
+            </div>
+            <div class="design-info">
+              <div class="category">04 / Promotion</div>
+                <h3>Concert Promotional Item</h3>
+                <p>Promotional graphics supporting the event identity.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="motion-preview-section">
+    <div class="section-heading">
+        <h2>Motion Preview</h2>
+        <p>Include your concert motion poster or LED animation here.</p>
+    </div>
+
+    <div class="video-box" data-category="led">
+        <video controls preload="metadata">
+            <source src="../Image/Comp 1_1.mp4"
+                    type="video/mp4">
+            Your browser does not support this video.
+        </video>
+    </div>
+</section>
+
+<footer>
+    © 2026 KL Design · Multimedia Designer
+</footer>
+
+</div>
+
+<div class="lightbox" id="lightbox">
+    <button class="close-btn" id="closeLightbox"
+            aria-label="Close image">&times;</button>
+    <img id="previewImage" src="" alt="">
+</div>
+
+<script>
+const filterButtons = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".design-card");
+
+filterButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach(function(item) {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        cards.forEach(function(card) {
+            card.hidden =
+                filter !== "all" &&
+                card.dataset.category !== filter;
+        });
+    });
+});
+
+const lightbox = document.getElementById("lightbox");
+const previewImage = document.getElementById("previewImage");
+
+document.querySelectorAll("[data-src]").forEach(function(item) {
+    item.addEventListener("click", function() {
+        previewImage.src = item.dataset.src;
+        previewImage.alt = item.dataset.alt;
+        lightbox.classList.add("open");
+    });
+});
+
+function closePreview() {
+    lightbox.classList.remove("open");
+    previewImage.src = "";
+}
+
+document.getElementById("closeLightbox")
+    .addEventListener("click", closePreview);
+
+lightbox.addEventListener("click", function(event) {
+    if (event.target === lightbox) {
+        closePreview();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closePreview();
+    }
+});
+	
+filterButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const filter = button.dataset.filter;
+
+    // 1. Remove active class from all filter buttons
+    filterButtons.forEach(function(item) {
+      item.classList.remove("active");
+    });
+
+    // 2. Set active class on clicked button
+    button.classList.add("active");
+
+    // 3. Show/hide cards based on the selected filter category
+    cards.forEach(function(card) {
+      card.hidden = 
+        filter !== "all" && 
+        card.dataset.category !== filter;
+    });
+
+    // 4. CONTROL VIDEOS: Play ONLY if the "LED Visuals" button is clicked, pause otherwise
+    document.querySelectorAll("video").forEach(function(video) {
+      if (filter === "led" || button.textContent.toLowerCase().includes("led")) {
+        video.play(); // Play video only for LED Visuals
+      } else {
+        video.pause();
+        video.currentTime = 0; // Rewind for other buttons/All Designs
+      }
+    });
+
+// Target the section using the new class name
+const motionSection = document.querySelector(".motion-preview-section");
+
+filterButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const filter = button.dataset.filter;
+
+    // 1. Remove active class from all filter buttons
+    filterButtons.forEach(function(item) {
+      item.classList.remove("active");
+    });
+    button.classList.add("active");
+
+    // 2. Check if clicked button is "LED Visuals"
+    const isLED = filter === "led" || button.textContent.trim().toLowerCase().includes("led");
+
+    // 3. Filter cards visibility
+    cards.forEach(function(card) {
+      card.hidden = filter !== "all" && card.dataset.category !== filter;
+    });
+
+    // 4. Hide/Show the Section and Play/Pause Video
+    if (motionSection) {
+      if (isLED) {
+        motionSection.style.display = "block"; // Show section
+        
+        const video = motionSection.querySelector("video");
+        if (video) video.play();
+      } else {
+        motionSection.style.display = "none";  // Hide entire section!
+        
+        const video = motionSection.querySelector("video");
+        if (video) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    }
+  });
+});
+	
+
+  });
+});
+</script>
+</body>
+</html>
+

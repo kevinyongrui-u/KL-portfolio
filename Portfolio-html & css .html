@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Creative Portfolio</title>
+
+  <style>
+    /* GENERAL SETTINGS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080914;
+      color: #ffffff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 8%;
+      background: #080914;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #62dfff, #d46cff);
+      color: transparent;
+      background-clip: text;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav a:hover {
+      color: #62dfff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 10%;
+      background:
+        radial-gradient(
+          ellipse at 15% 20%,
+          rgba(0, 140, 255, 0.35),
+          transparent 45%
+        ),
+        radial-gradient(
+          ellipse at 85% 35%,
+          rgba(255, 0, 140, 0.30),
+          transparent 45%
+        ),
+        #080914;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .subtitle,
+    .section-label {
+      color: #69ddff;
+      letter-spacing: 4px;
+      font-size: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 8vw, 90px);
+      line-height: 1.05;
+      margin: 25px 0;
+      background: linear-gradient(
+        90deg, #ffffff, #69ddff, #ff65c8
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p.description {
+      color: #b7bfd2;
+      line-height: 1.8;
+    }
+
+    .portfolio-btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 24px;
+      border: 1px solid #69ddff;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .portfolio-btn:hover {
+      background: #69ddff;
+      color: #080914;
+      box-shadow: 0 0 25px #69ddff;
+    }
+
+    /* PROJECT GALLERY */
+    .projects {
+      padding: 90px 8%;
+      background: #0c0d1b;
+    }
+
+    .projects h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      margin: 18px 0 40px;
+    }
+
+    .projects h2 span {
+      color: #ff65c8;
+    }
+
+    .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    align-items: start;
+}
+    /* PROJECT CARDS */
+    .project-card {
+      overflow: hidden;
+      border: 1px solid #292b43;
+      border-radius: 16px;
+      background: #141528;
+      transition: transform 0.35s, box-shadow 0.35s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 0 25px rgba(105, 221, 255, 0.15);
+    }
+
+    .project-card img {
+      display: block;
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      background: #101120;
+      transition: transform 0.4s;
+		
+    }
+    .project-card 
+    .project-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .project-info {
+      padding: 24px;
+    }
+
+    .project-info p {
+      color: #9da5c0;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .project-info h3 {
+      margin: 12px 0;
+      font-size: 26px;
+    }
+
+    .project-info span {
+      color: #69ddff;
+      font-size: 13px;
+    }
+
+    /* ABOUT SECTION */
+    .about {
+      padding: 90px 10%;
+      background: #080914;
+      line-height: 1.8;
+    }
+
+    .about h2 {
+      font-size: 40px;
+      margin: 18px 0;
+    }
+
+    .about p {
+      color: #b7bfd2;
+      max-width: 700px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #292b43;
+      color: #9da5c0;
+      font-size: 13px;
+    }
+
+    /* MOBILE RESPONSIVE */
+
+    @media (max-width: 700px) {
+      nav {
+        padding: 20px 6%;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 75vh;
+        padding: 70px 7%;
+      }
+
+      .projects {
+        padding: 65px 6%;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card img {
+        height: 320px;
+      }
+
+      .about {
+        padding: 65px 7%;
+      }
+    }
+	  
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="logo">KL. DESIGN</a>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="Portfolio-2html & css .html">Projects</a></li>
+      <li><a href="#about">About</a></li>
+	  <li><a href="#portfolio"></a></li>
+    </ul>
+  </nav>
+
+
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="subtitle">MULTIMEDIA DESIGNER</p>
+
+      <h1>Ideas Into<br>Visual Experiences.</h1>
+
+      <p class="description">
+        Graphic Design · Motion Graphics · Digital Art
+      </p>
+
+      <a href="Portfolio-2html & css .html" class="portfolio-btn">
+        Explore My Work ↗
+      </a>
+    </div>
+  </section>
+	
+  <!-- ABOUT ME -->
+  <section class="about" id="about">
+    <p class="section-label">GET TO KNOW ME</p>
+    <h2>About Me</h2>
+    <p>
+      I am a multimedia designer passionate about
+      graphic design, digital art and visual storytelling.
+      I enjoy creating meaningful designs that combine
+      creativity, communication and visual impact.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 KL. DESIGN — Designed with creativity.
+  </footer>
+
+</body>
+</html>
+

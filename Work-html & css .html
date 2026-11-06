@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PurePalm Branding | KL Design</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #080914;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #292b40;
+    gap: 15px;
+}
+
+.logo {
+   
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+	background: linear-gradient(90deg, #62dfff, #d46cff);
+    color: transparent;
+    background-clip: text;
+}
+
+nav a {
+    color: #cbd2e5;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+nav a:hover {
+    color: #62dfff;
+}
+
+.hero {
+    padding: 65px 0 35px;
+}
+
+.eyebrow {
+    color: #70dfff;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.15;
+    margin: 12px 0 18px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #70dfff, #d56cff);
+    color: transparent;
+    background-clip: text;
+}
+
+.hero p, .description {
+    color: #aab2c9;
+    max-width: 720px;
+}
+
+.section-heading {
+    margin: 35px 0 20px;
+}
+
+.section-heading h2 {
+    font-size: 27px;
+}
+
+.section-heading p {
+    color: #aab2c9;
+    font-size: 14px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 520px;
+    background: #141627;
+    border: 1px solid #292b40;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin: 25px 0 70px;
+}
+
+.design-card {
+    min-width: 0;
+    overflow: hidden;
+    background: #111323;
+    border: 1px solid #292b40;
+    border-radius: 12px;
+}
+
+.design-image {
+    width: 100%;
+    height: 360px;
+    background: #171a2c;
+    cursor: zoom-in;
+}
+
+.design-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .3s;
+}
+
+.design-card:hover img {
+    transform: scale(1.025);
+}
+
+.design-info {
+    padding: 20px;
+}
+
+.design-info h3 {
+    margin-bottom: 7px;
+}
+
+.design-info p {
+    color: #aab2c9;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid #292b40;
+    padding: 25px 0;
+    color: #aab2c9;
+    font-size: 13px;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, .94);
+    padding: 25px;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 85vh;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    font-size: 38px;
+    background: none;
+    color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+    nav {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 0 12px 0 0;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+        height: 360px;
+    }
+
+    .design-image {
+        height: 320px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<nav>
+    <a class="logo" href="index.html">KL DESIGN</a>
+    <div>
+        <a href="Portfolio-html & css .html">Home</a>
+        <a href="Portfolio-2html & css .html">My Work</a>
+       
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="eyebrow">BRANDING / PRODUCT DESIGN</div>
+    <h1>PurePalm<br><span class="gradient">Natural Care.</span></h1>
+    <p>
+        A nature-inspired hair, face and body wash concept
+        combining botanical visuals, elegant typography
+        and a refreshing product identity.
+    </p>
+</header>
+
+<section>
+    <div class="section-heading">
+        <h2>Featured Design</h2>
+        <p>The main visual for the PurePalm project.</p>
+    </div>
+
+    <div class="hero-image"
+         data-src="images/purepalm.jpg"
+         data-alt="PurePalm main branding poster">
+        <img src="../Image/ChatGPT Image Jul 19, 2026, 03_49_03 PM.png"
+             alt="PurePalm main branding poster">
+    </div>
+</section>
+
+<section>
+    <div class="section-heading">
+        <h2>Design Collection</h2>
+        <p>Explore the different elements of the brand.</p>
+    </div>
+
+    <div class="gallery">
+
+        <article class="design-card">
+            <div class="design-image"
+                 data-src="images/purepalm-packaging.jpg"
+                 data-alt="PurePalm packaging design">
+                <img src="../Image/Mockup-01-01.jpg"
+                     alt="PurePalm packaging design">
+            </div>
+            <div class="design-info">
+                <h3>Packaging Design</h3>
+                <p>Product bottle, label and packaging presentation.</p>
+            </div>
+        </article>
+
+        <article class="design-card">
+            <div class="design-image"
+                 data-src="images/purepalm-identity.jpg"
+                 data-alt="PurePalm brand identity">
+                <img src="../Image/Screenshot 2026-10-26 103712.png"
+                     alt="PurePalm brand identity">
+            </div>
+            <div class="design-info">
+                <h3>Brand Identity</h3>
+                <p>Logo, typography and colour palette.</p>
+            </div>
+        </article>
+
+        <article class="design-card">
+            <div class="design-image"
+                 data-src="images/purepalm-mockup.jpg"
+                 data-alt="PurePalm product mockup">
+                <img src="../Image/PurePalm Natural Spa Ritual.png"
+                     alt="PurePalm product mockup">
+            </div>
+            <div class="design-info">
+                <h3>Poster Design&nbsp;</h3>
+                <p>Product presentation in a natural environment.</p>
+            </div>
+        </article>
+
+        <article class="design-card">
+            <div class="design-image"
+                 data-src="images/purepalm-promotion.jpg"
+                 data-alt="PurePalm promotional design">
+                <img src="../Image/Screenshot 2026-08-11 223315.png"
+                     alt="PurePalm promotional design">
+            </div>
+            <div class="design-info">
+                <h3>Promotional Website Design</h3>
+                <p>Advertising visuals for product promotion.</p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 KL Design · PurePalm Branding Project
+</footer>
+</div>
+
+<div class="lightbox" id="lightbox">
+    <button class="close" id="close" aria-label="Close image">
+        &times;
+    </button>
+    <img id="largeImage" src="" alt="">
+</div>
+
+<script>
+const lightbox = document.getElementById("lightbox");
+const largeImage = document.getElementById("largeImage");
+
+document.querySelectorAll("[data-src]").forEach(function(item) {
+    item.addEventListener("click", function() {
+        largeImage.src = item.dataset.src;
+        largeImage.alt = item.dataset.alt;
+        lightbox.classList.add("open");
+    });
+});
+
+function closePreview() {
+    lightbox.classList.remove("open");
+    largeImage.src = "";
+}
+
+document.getElementById("close").addEventListener("click", closePreview);
+
+lightbox.addEventListener("click", function(event) {
+    if (event.target === lightbox) {
+        closePreview();
+    }
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closePreview();
+    }
+});
+</script>
+</body>
+</html>
